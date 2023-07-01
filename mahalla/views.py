@@ -38,8 +38,6 @@ class CategoriyaPeopleDeteile(APIView):
     perrmisson_class = [IsAuthenticated]
     def get(self,request,pk,format=None):
         objects_list = People.objects.filter(id_categor__id=pk,people__id_user=request.user.id)
-        print(Tasks.objects.check_deadline_taks(request.user.id,pk))
-    
         serizalizers = PeopleAllSerializers(objects_list,many=True)
         return Response(serizalizers.data,status=status.HTTP_200_OK)
 
