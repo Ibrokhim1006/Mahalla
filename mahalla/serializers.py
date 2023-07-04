@@ -21,17 +21,20 @@ class RegionAllSerializers(serializers.ModelSerializer):
 class MahallaAllSerializers(serializers.ModelSerializer):
     class Meta:
         model = Mahalla
-        fields = ['id','name']
+        fields = ['id','name','id_sektor']
 
-class DistirckSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = District
-        fields = ['id','name']
+
 
 class SektorSerializers(serializers.ModelSerializer):
     class Meta:
         model = Sektor
         fields = ['id','name']
+
+class DistirckSerializers(serializers.ModelSerializer):
+    id_sektor = SektorSerializers(read_only=True,many=True)
+    class Meta:
+        model = District
+        fields = ['id','name','id_sektor']
 
 class TaslCategoriyaSerializers(serializers.ModelSerializer):
     class Meta:

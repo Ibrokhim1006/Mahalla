@@ -20,4 +20,13 @@ urlpatterns = [
     
     path('reagion_employe/<int:pk>/',ReagionEmploye.as_view()),
     path('region_task_files/<int:pk>/',RegionTaskFiles.as_view()),
+
+    # 
+    path('district_all_views/',DistrictAllViews.as_view()),
+    path('districk_sektor_deteteile/<int:pk>/<int:pkk>/',DistrickSektorDeteile.as_view()),
+    path('categoriya_people_views/<int:pk>/<int:id_sektor>/<int:pkk>/',CategoriyaPeopleViews.as_view()),
+    path('mahalla_all_views/<int:pk>/<int:pkk>/',MahallaAllViews.as_view()),
+    path('mahalla_deteile_views/<int:pk>/<int:id_sektor>/<int:pkk>/',MahallaDeteileViews.as_view()),
+    path('mahalla_deteile/<int:id_category>/<int:pk>/<int:id_sektor>/<int:pkk>/',MahallaDeteiles.as_view()),
+
 ]
